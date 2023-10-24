@@ -1,0 +1,2 @@
+C:\Users\Jemp\source\repos\Fairwinds_CompanyProfiler\obj\Debug\Fairwinds_CompanyProfiler.esproj.SuggestedBindingRedirects.cache
+C:\Users\Jemp\source\repos\Fairwinds_CompanyProfiler\obj\Debug\Fairwinds_CompanyProfiler.esproj.CoreCompileInputs.cache
