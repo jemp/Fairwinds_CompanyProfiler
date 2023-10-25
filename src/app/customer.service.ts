@@ -11,7 +11,7 @@ import { MessageService } from './message.service';
 @Injectable({ providedIn: 'root' })
 export class customerService {
 
-  private customersUrl = 'https://my.api.mockaroo.com/customers.json?key=e95894a0&size=5';  // URL to web api
+  private customersUrl = 'https://my.api.mockaroo.com/users.json?key=e6568e90';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

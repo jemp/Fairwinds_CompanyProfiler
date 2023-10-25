@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { customer } from '../customer';
 import { customerService } from '../customer.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-customers',
@@ -9,9 +10,10 @@ import { customerService } from '../customer.service';
   styleUrls: ['./customers.component.css']
 })
 export class customersComponent implements OnInit {
-  customers: customer[] = [];
-
-  constructor(private customerService: customerService) { }
+    customers: customer[] = [];
+    closeResult: string | undefined;
+    modalContent!: customer;
+  constructor(private customerService: customerService,private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.getcustomers();
@@ -20,6 +22,12 @@ export class customersComponent implements OnInit {
   getcustomers(): void {
     this.customerService.getcustomers()
     .subscribe(customers => this.customers = customers);
+  }
+
+  open(content: any, tableRow: customer) {
+    //this.modalContent = content;
+    this.modalContent = tableRow
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }
 
   //add(name: string): void {

@@ -1,6 +1,7 @@
 {
   "name": "fairwinds-company-profiler",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host=127.0.0.1",
@@ -24,9 +25,11 @@
     "bootstrap-icons": "^1.11.1",
     "bootstrap-table": "^1.22.1",
     "jest-editor-support": "*",
+    "jquery": "^3.7.1",
     "rxjs": "~7.8.0",
     "rxjs-compat": "^6.6.7",
     "tslib": "^2.3.0",
+    "util": "^0.12.5",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
@@ -34,6 +37,7 @@
     "@angular/cli": "^16.2.7",
     "@angular/compiler-cli": "^16.2.0",
     "@types/jasmine": "~4.3.0",
+    "@types/jquery": "^3.5.25",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

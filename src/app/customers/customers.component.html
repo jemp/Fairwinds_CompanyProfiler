@@ -1,51 +1,54 @@
-<h2>My customers</h2>
 
-<div>
-  <label for="new-customer">customer name: </label>
-  <input id="new-customer" #customerName />
+<div class="row">
+  <div class="col-10 offset-1">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Customer Number</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Date Of Birth</th>
+          <th>Last Four SSN</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers" (click)="open(content, customer)">
+          <td>{{customer.customer_number }}</td>
+          <td>{{customer.first_name }}</td>
+          <td>{{customer.last_name}}</td>
+          <td>{{customer.date_birth}}</td>
+          <td>{{customer.ssn}}</td>
+          <td>21</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <!-- (click) passes input value to add() and then clears the input -->
-  <!--<button type="button" class="add-button" (click)="add(customerName.value); customerName.value=''">
-    Add customer
-  </button>-->
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Details</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Email: {{ modalContent.email }}
+        <br>
+        <br>
+        Mobile Phone Number: {{ modalContent.mobile_phone_number }}
+        <br>
+        Join Date: {{modalContent.join_date }}
+        <br>
+        Address: {{modalContent.primary_address.address_line_1}}
+        City: {{modalContent.primary_address.city}}
+        State: {{modalContent.primary_address.state}}
+        Zipcode: {{modalContent.primary_address.zip_code}}
+      </div>
+    </ng-template>
+    <hr>
+
+<pre>{{closeResult}}</pre>
+
+  </div>
 </div>
-
-<ul class="customers">
-  <li *ngFor="let customer of customers">
-    <a routerLink="/detail/{{customer.customer_number}}">
-      <span class="badge">{{customer.customer_number}}</span> {{customer.first_name}}
-    </a>
-    <button type="button" class="delete" title="delete customer"
-      (click)="delete(customer)">x</button>
-  </li>
-</ul>
-
-<table class="table-class">
-  <tr *ngFor="let customer of customers">
-    <td *ngFor="let keyValue of customer | keyvalue">
-    </td>
-  </tr>
-</table>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Customer Number</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Date Of Birth</th>
-      <th>Last Four SSN</th>
-      <th>Age</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let customer of customers">
-      <td>{{customer.customer_number }}</td>
-      <td>{{customer.first_name }}</td>
-      <td>{{customer.last_name}}</td>
-      <td>{{customer.date_birth}}</td>
-      <td>{{customer.ssn}}</td>
-      <td>21</td>
-    </tr>
-  </tbody>
-</table>

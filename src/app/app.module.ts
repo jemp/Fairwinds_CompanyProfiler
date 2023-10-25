@@ -15,13 +15,14 @@ import { customerSearchComponent } from './customer-search/customer-search.compo
 import { MessagesComponent } from './messages/messages.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule,
+    NgbModule
   ],
   declarations: [
     AppComponent,

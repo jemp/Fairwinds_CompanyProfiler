@@ -26,13 +26,15 @@
             ],
             "styles": [
               "node_modules/bootstrap/scss/bootstrap.scss",
-              "node_modules/bootstrap-table/src/bootstrap-table.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/bootstrap-table/src/bootstrap-table.scss",
               "src/styles.scss"
             ],
             "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "node_modules/bootstrap-table/src/bootstrap-table.js"
+              "node_modules/bootstrap-table/src/constants/index.js",
+              "node_modules/bootstrap-table/src/utils/index.js"
             ]
           },
           "configurations": {
@@ -93,9 +95,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/bootstrap-table/src/bootstrap-table.scss",
+              "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/bootstrap-table/src/constants/index.js",
+              "node_modules/bootstrap-table/src/utils/index.js"
+            ],
             "karmaConfig": "karma.conf.js"
           }
         }
