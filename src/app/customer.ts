@@ -1,4 +1,4 @@
-export interface CustomerProfile {
+export interface customer {
   customer_number: number
   first_name: string
   last_name: string
@@ -7,7 +7,7 @@ export interface CustomerProfile {
   email: string
   primary_address: PrimaryAddress
   mobile_phone_number: string
-  join_date: Date
+  join_date: string
 }
 
 export interface PrimaryAddress {
@@ -16,5 +16,3 @@ export interface PrimaryAddress {
   state: string
   zip_code: number
 }
-
-}}

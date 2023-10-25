@@ -1,0 +1,51 @@
+<h2>My customers</h2>
+
+<div>
+  <label for="new-customer">customer name: </label>
+  <input id="new-customer" #customerName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <!--<button type="button" class="add-button" (click)="add(customerName.value); customerName.value=''">
+    Add customer
+  </button>-->
+</div>
+
+<ul class="customers">
+  <li *ngFor="let customer of customers">
+    <a routerLink="/detail/{{customer.customer_number}}">
+      <span class="badge">{{customer.customer_number}}</span> {{customer.first_name}}
+    </a>
+    <button type="button" class="delete" title="delete customer"
+      (click)="delete(customer)">x</button>
+  </li>
+</ul>
+
+<table class="table-class">
+  <tr *ngFor="let customer of customers">
+    <td *ngFor="let keyValue of customer | keyvalue">
+    </td>
+  </tr>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Customer Number</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Date Of Birth</th>
+      <th>Last Four SSN</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <td>{{customer.customer_number }}</td>
+      <td>{{customer.first_name }}</td>
+      <td>{{customer.last_name}}</td>
+      <td>{{customer.date_birth}}</td>
+      <td>{{customer.ssn}}</td>
+      <td>21</td>
+    </tr>
+  </tbody>
+</table>
