@@ -32,9 +32,7 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "node_modules/bootstrap-table/src/constants/index.js",
-              "node_modules/bootstrap-table/src/utils/index.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
@@ -102,9 +100,7 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "node_modules/bootstrap-table/src/constants/index.js",
-              "node_modules/bootstrap-table/src/utils/index.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ],
             "karmaConfig": "karma.conf.js"
           }

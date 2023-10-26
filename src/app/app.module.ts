@@ -8,12 +8,10 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { customerDetailComponent } from './customer-detail/customer-detail.component';
 import { customersComponent } from './customers/customers.component'
-import { customerSearchComponent } from './customer-search/customer-search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NewCustomerComponent } from './new-customer/new-customer.component'
 
 
 @NgModule({
@@ -26,11 +24,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
     customersComponent,
-    customerDetailComponent,
     MessagesComponent,
-    customerSearchComponent
+    NewCustomerComponent
   ],
   bootstrap: [AppComponent]
 })

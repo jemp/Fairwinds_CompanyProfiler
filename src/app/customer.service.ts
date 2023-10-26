@@ -11,11 +11,15 @@ import { MessageService } from './message.service';
 @Injectable({ providedIn: 'root' })
 export class customerService {
 
-  private customersUrl = 'https://my.api.mockaroo.com/users.json?key=e6568e90';  // URL to web api
+  private customersUrl = 'https://my.api.mockaroo.com/customers.json?key=03c46990&size=5';  // URL to web api
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    observe: 'response' as const,
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }
+    )
+   
   };
+    httpResponse: any;
 
   constructor(
     private http: HttpClient,
@@ -70,15 +74,14 @@ export class customerService {
   //////// Save methods //////////
 
   /** POST: add a new customer to the server */
-  addcustomer(customer: customer): Observable<customer> {
-    return this.http.post<customer>(this.customersUrl, customer, this.httpOptions).pipe(
-      tap((newcustomer: customer) => this.log(`added customer w/ id=${newcustomer.customer_number}`)),
-      catchError(this.handleError<customer>('addcustomer'))
-    );
+  addcustomer(customer: customer): Observable<any> { 
+    return this.http.post<customer>(this.customersUrl, customer, this.httpOptions)
+    ;
+    
   }
 
   /** DELETE: delete the customer from the server */
-  deletecustomer(id: number): Observable<customer> {
+  deletecustomer(id: number): Observable<any> {
     const url = `${this.customersUrl}/${id}`;
 
     return this.http.delete<customer>(url, this.httpOptions).pipe(

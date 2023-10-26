@@ -1,0 +1,207 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h5 class="pb-3 text-center">Please enter your data below the fields below:</h5>
+    <form (ngSubmit)="onSubmit()" #customerForm="ngForm">
+
+      <div class="row">
+
+
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <label for="first_name">First Name</label>
+            <input type="text" class="form-control" id="first_name"
+                   required
+                   [(ngModel)]="model.first_name" name="first_name"
+                   #first_name="ngModel">
+            <div [hidden]="first_name.valid || first_name.pristine"
+                 class="alert alert-danger">
+              First Name is required
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-12 col-md-6">
+
+          <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" class="form-control" id="last_name"
+                   required
+                   [(ngModel)]="model.last_name" name="last_name"
+                   #last_name="ngModel">
+            <div [hidden]="last_name.valid || last_name.pristine"
+                 class="alert alert-danger">
+              Last Name is required
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <div class="form-group">
+              <label for="date_birth">Birth Date</label>
+              <input type="text" class="form-control" id="date_birth"
+                     required
+                     [(ngModel)]="model.date_birth" name="date_birth"
+                     #date_birth="ngModel">
+              <div [hidden]="date_birth.valid || date_birth.pristine"
+                   class="alert alert-danger">
+                Birth Date is required
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <div class="form-group">
+              <label for="ssn">Social Security Number</label>
+              <input type="text" class="form-control" id="ssn"
+                     required
+                     [(ngModel)]="model.ssn" name="ssn"
+                     #ssn="ngModel">
+              <div [hidden]="ssn.valid || ssn.pristine"
+                   class="alert alert-danger">
+                Social Security Number is required
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" id="email"
+                     required
+                     [(ngModel)]="model.email" name="email"
+                     #email="ngModel">
+              <div [hidden]="email.valid || email.pristine"
+                   class="alert alert-danger">
+                Email is required
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <div class="form-group">
+              <label for="mobile_phone_number">Mobile Phone Number</label>
+              <input type="text" class="form-control" id="mobile_phone_number"
+                     required
+                     [(ngModel)]="model.mobile_phone_number" name="mobile_phone_number"
+                     #mobile_phone_number="ngModel">
+              <div [hidden]="mobile_phone_number.valid || mobile_phone_number.pristine"
+                   class="alert alert-danger">
+                Mobile Phone Number is required
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <div class="form-group">
+              <label for="join_date">Join Date</label>
+              <input type="text" class="form-control" id="join_date"
+                     required
+                     [(ngModel)]="model.join_date" name="join_date"
+                     #join_date="ngModel">
+              <div [hidden]="join_date.valid || join_date.pristine"
+                   class="alert alert-danger">
+                Join Date is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <div class="form-group">
+              <label for="address_line_1">Address</label>
+              <input type="text" class="form-control" id="Address"
+                     required
+                     [(ngModel)]="model.primary_address.address_line_1" name="address_line_1"
+                     #address_line_1="ngModel">
+              <div [hidden]="address_line_1.valid || address_line_1.pristine"
+                   class="alert alert-danger">
+                Address is required
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <div class="form-group">
+              <label for="zip_code">Zip Code</label>
+              <input type="text" class="form-control" id="Zip_Code"
+                     required
+                     [(ngModel)]="model.primary_address.zip_code" name="zip_code"
+                     #zip_code="ngModel">
+              <div [hidden]="zip_code.valid || zip_code.pristine"
+                   class="alert alert-danger">
+                Zipcode is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+
+          <div class="form-group">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city"
+                     required
+                     [(ngModel)]="model.primary_address.city" name="city"
+                     #city="ngModel">
+              <div [hidden]="city.valid || city.pristine"
+                   class="alert alert-danger">
+                City is required
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <div class="form-group">
+              <label for="state">State</label>
+              <input type="text" class="form-control" id="state"
+                     required
+                     [(ngModel)]="model.primary_address.state" name="state"
+                     #state="ngModel">
+              <div [hidden]="state.valid || state.pristine"
+                   class="alert alert-danger">
+                State is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-grid gap-2 p-1">
+          <button type="submit" class="btn btn-success m-3" [disabled]="!customerForm.form.valid">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div [hidden]="!submitted">
+    <h5> Your submission has been successful! Have a wonderful day.</h5>
+    <div class="d-grid gap-2 p-1">
+      <button type="submit" class="btn btn-success m-3" >Close</button>
+    </div>
+  </div>
+
+  <div [hidden]="notFaulted">
+    There was an error while attempting to submit your data. Please try again.
+  </div>
+</div>
+

@@ -24,27 +24,74 @@
       </tbody>
     </table>
 
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" (click)="open(newCustomer)">
+      New Customer
+    </button>
 
-    <ng-template #content let-modal>
+    <ng-template #newCustomer let-modal>
       <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Details</h4>
+        <h4 class="modal-title" id="modal-basic-title">New Customer</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Email: {{ modalContent.email }}
-        <br>
-        <br>
-        Mobile Phone Number: {{ modalContent.mobile_phone_number }}
-        <br>
-        Join Date: {{modalContent.join_date }}
-        <br>
-        Address: {{modalContent.primary_address.address_line_1}}
-        City: {{modalContent.primary_address.city}}
-        State: {{modalContent.primary_address.state}}
-        Zipcode: {{modalContent.primary_address.zip_code}}
+        <app-new-customer> </app-new-customer>
+        </div>
+    </ng-template>
+
+
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Customer Details</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-5 fw-bold pb-3 pb-2">Email:</div>
+          <div class="col-3">{{ modalContent.email }}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-5 fw-bold pb-3">Mobile Phone Number:</div>
+          <div class="col-5">{{ modalContent.mobile_phone_number }}</div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-5 fw-bold pb-3">Join Date:</div>
+          <div class="col-3">{{modalContent.join_date }}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-11 offset-3">
+
+            <div class="row">
+              <div class="col-2 fw-bold">Address:</div>
+              <div class="col-6">{{modalContent.primary_address.address_line_1}}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-2 fw-bold ">City:</div>
+              <div class="col-3">{{modalContent.primary_address.city}}</div>
+            </div>
+            <div class="row">
+              <div class="col-2 fw-bold ">State:</div>
+              <div class="col-3">{{modalContent.primary_address.state}}</div>
+            </div>
+            <div class="row">
+              <div class="col-2 fw-bold ">Zipcode:</div>
+              <div class="col-3">{{modalContent.primary_address.zip_code}}</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </ng-template>
     <hr>
 
@@ -52,3 +99,6 @@
 
   </div>
 </div>
+
+
+
