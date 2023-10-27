@@ -5,8 +5,8 @@ import { customerService} from '../customer.service';
 
 @Component({
   selector: 'app-new-customer',
-    templateUrl: './new-customer.component.html',
-    styleUrls: ['./new-customer.component.css']
+  templateUrl: './new-customer.component.html',
+  styleUrls: ['./new-customer.component.css']
 })
 export class NewCustomerComponent implements OnInit {
   result: any;
@@ -20,7 +20,7 @@ export class NewCustomerComponent implements OnInit {
   }
 
 
-  model = new customer(0,"","","","","", new PrimaryAddress("","","",0),"","");
+  model = new customer(0, "", "", new Date(), "", "", new PrimaryAddress("", "", "", 0), "", "");
 
   submitted = false;
 
@@ -30,14 +30,14 @@ export class NewCustomerComponent implements OnInit {
       if (this.result == 201) {
         this.submitted = true;
       }
-      else {
-        this.notFaulted = false
+    },
+      err => {
+          this.notFaulted = false;
+
       }
-    })
-
-
-
-    }
- }
+    )
+  }
+}
+    
 
 

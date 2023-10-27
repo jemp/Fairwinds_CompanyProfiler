@@ -2,22 +2,21 @@ export class customer {
   customer_number: number;
   first_name: string;
   last_name: string;
-  date_birth: string;
+  date_birth: Date;
   ssn: string;
   email: string;
   primary_address: PrimaryAddress;
   mobile_phone_number: string;
   join_date: string;
 
+
+
   constructor(
-
-
-
 
     customer_number: number,
     first_name: string,
     last_name: string,
-    date_birth: string,
+    date_birth: Date,
     ssn: string,
     email: string,
     primary_address: PrimaryAddress,

@@ -18,16 +18,27 @@
           <td>{{customer.first_name }}</td>
           <td>{{customer.last_name}}</td>
           <td>{{customer.date_birth}}</td>
-          <td>{{customer.ssn}}</td>
-          <td>21</td>
+          <td> {{getLastFour(customer.ssn)}}</td>
+          <td>{{calculateAge(customer.date_birth)}}</td>
         </tr>
       </tbody>
     </table>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" (click)="open(newCustomer)">
-      New Customer
-    </button>
+    <div class="row">
+      <div class="col-12">
+        <button type="button" class="btn btn-primary" (click)="open(newCustomer)">
+          New Customer
+        </button>
+      </div>
+
+
+      <div class="col-12 p-1 text-center">
+        <i class="bi bi-lightbulb-fill"></i> Tip: Click a user above to view more details!
+      </div>
+    </div>
+
+
+    <label> Application done by Jesse Hemphill</label>
 
     <ng-template #newCustomer let-modal>
       <div class="modal-header">

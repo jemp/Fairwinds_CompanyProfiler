@@ -27,21 +27,30 @@ export class customersComponent implements OnInit {
 
   open(content: any, tableRow?: customer) {
     //this.modalContent = content;
-    this.modalContent = tableRow ? tableRow : new customer(0, "", "", "", "", "", new PrimaryAddress("", "", "", 0), "", "");
+    this.modalContent = tableRow ? tableRow : new customer(0, "", "", new Date(), "", "", new PrimaryAddress("", "", "", 0), "", "");
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+  }
+
+  calculateAge(birthDate: Date) {
+      var timeDiff = Math.abs(Date.now() - new Date(birthDate).getTime());
+      return Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
+
+  }
+
+  getLastFour(fullString: string) {
+    if (fullString) {
+      return fullString.slice(-4);
+    }
+    return "N/A";
   }
  
 
-  add(first_name: string, last_name: string, date_birth: string, ssn: string, email: string, primary_address: PrimaryAddress, mobile_phone_number: string, join_date: string): void {
+  add(first_name: string, last_name: string, date_birth: Date, ssn: string, email: string, primary_address: PrimaryAddress, mobile_phone_number: string, join_date: string): void {
     ///some sort of validation?
     this.customerService.addcustomer({ first_name, last_name, date_birth, ssn, email, primary_address, mobile_phone_number, join_date } as customer)
       .subscribe(result => this.httpResponse = result);
  
   }
 
-  delete(customer: customer): void {
-    this.customers = this.customers.filter(h => h !== customer);
-    this.customerService.deletecustomer(customer.customer_number).subscribe();
-  }
 
 }

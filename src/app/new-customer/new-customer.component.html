@@ -2,7 +2,9 @@
   <div [hidden]="submitted">
     <h5 class="pb-3 text-center">Please enter your data below the fields below:</h5>
     <form (ngSubmit)="onSubmit()" #customerForm="ngForm">
-
+      <div class="text-danger pb-3" [hidden]="notFaulted">
+        There was an error while attempting to submit your data. Please try again.
+      </div>
       <div class="row">
 
 
@@ -20,12 +22,11 @@
           </div>
 
         </div>
-
         <div class="col-12 col-md-6">
 
           <div class="form-group">
             <label for="last_name">Last Name</label>
-            <input type="text" class="form-control" id="last_name"
+            <input type="text"  class="form-control" id="last_name"
                    required
                    [(ngModel)]="model.last_name" name="last_name"
                    #last_name="ngModel">
@@ -40,7 +41,8 @@
           <div class="form-group">
             <div class="form-group">
               <label for="date_birth">Birth Date</label>
-              <input type="text" class="form-control" id="date_birth"
+              <input type="date" class="form-control" id="date_birth"
+                     datetime="yyyy-MM-dd"
                      required
                      [(ngModel)]="model.date_birth" name="date_birth"
                      #date_birth="ngModel">
@@ -58,7 +60,8 @@
           <div class="form-group">
             <div class="form-group">
               <label for="ssn">Social Security Number</label>
-              <input type="text" class="form-control" id="ssn"
+              <input  type="text" class="form-control" id="ssn"
+                     pattern="^(?!0{3})(?!6{3})[0-8]\d{2}-(?!0{2})\d{2}-(?!0{4})\d{4}$"
                      required
                      [(ngModel)]="model.ssn" name="ssn"
                      #ssn="ngModel">
@@ -109,7 +112,8 @@
           <div class="form-group">
             <div class="form-group">
               <label for="join_date">Join Date</label>
-              <input type="text" class="form-control" id="join_date"
+              <input matInput class="form-control" id="join_date"
+                      type="date"
                      required
                      [(ngModel)]="model.join_date" name="join_date"
                      #join_date="ngModel">
@@ -142,7 +146,7 @@
           <div class="form-group">
             <div class="form-group">
               <label for="zip_code">Zip Code</label>
-              <input type="text" class="form-control" id="Zip_Code"
+              <input pattern="^\d{5}(?:[-\s]\d{4})?$" type="text" class="form-control" id="Zip_Code"
                      required
                      [(ngModel)]="model.primary_address.zip_code" name="zip_code"
                      #zip_code="ngModel">
@@ -194,14 +198,10 @@
     </form>
   </div>
   <div [hidden]="!submitted">
-    <h5> Your submission has been successful! Have a wonderful day.</h5>
-    <div class="d-grid gap-2 p-1">
-      <button type="submit" class="btn btn-success m-3" >Close</button>
-    </div>
+    <h5 class="p-5 text-center"> Your submission has been successful! Have a wonderful day.</h5>
+
   </div>
 
-  <div [hidden]="notFaulted">
-    There was an error while attempting to submit your data. Please try again.
-  </div>
+
 </div>
 

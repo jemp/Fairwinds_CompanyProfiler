@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, retry, tap } from 'rxjs/operators';
 
 import { customer } from './customer';
 import { MessageService } from './message.service';
@@ -11,7 +11,7 @@ import { MessageService } from './message.service';
 @Injectable({ providedIn: 'root' })
 export class customerService {
 
-  private customersUrl = 'https://my.api.mockaroo.com/customers.json?key=03c46990&size=5';  // URL to web api
+  private customersUrl = 'https://my.api.mockaroo.com/customers.json?key=03c46990&size=10';  // URL to web api
 
   httpOptions = {
     observe: 'response' as const,
@@ -34,20 +34,6 @@ export class customerService {
       );
   }
 
-  /** GET customer by id. Return `undefined` when id not found */
-  getcustomerNo404<Data>(id: number): Observable<customer> {
-    const url = `${this.customersUrl}/?id=${id}`;
-    return this.http.get<customer[]>(url)
-      .pipe(
-        map(customers => customers[0]), // returns a {0|1} element array
-        tap(h => {
-          const outcome = h ? 'fetched' : 'did not find';
-          this.log(`${outcome} customer id=${id}`);
-        }),
-        catchError(this.handleError<customer>(`getcustomer id=${id}`))
-      );
-  }
-
   /** GET customer by id. Will 404 if id not found */
   getcustomer(id: number): Observable<customer> {
     const url = `${this.customersUrl}/${id}`;
@@ -57,26 +43,16 @@ export class customerService {
     );
   }
 
-  /* GET customers whose name contains search term */
-  searchcustomers(term: string): Observable<customer[]> {
-    if (!term.trim()) {
-      // if not search term, return empty customer array.
-      return of([]);
-    }
-    return this.http.get<customer[]>(`${this.customersUrl}/?name=${term}`).pipe(
-      tap(x => x.length ?
-         this.log(`found customers matching "${term}"`) :
-         this.log(`no customers matching "${term}"`)),
-      catchError(this.handleError<customer[]>('searchcustomers', []))
-    );
-  }
+
 
   //////// Save methods //////////
 
   /** POST: add a new customer to the server */
   addcustomer(customer: customer): Observable<any> { 
-    return this.http.post<customer>(this.customersUrl, customer, this.httpOptions)
-    ;
+    return this.http.post<customer>(this.customersUrl, customer, this.httpOptions);
+   
+
+    
     
   }
 
