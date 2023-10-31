@@ -45,6 +45,8 @@ yarn-error.log
 
 .vs
 
+/.nuguet/cache
+
 
 # rollup-test output
 /modules/rollup-test/dist/
